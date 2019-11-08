@@ -1,3 +1,15 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  width: 100%;
+}
+html{
+  font-size: 62.5%;
+}
+
 .App {
   text-align: center;
 }
@@ -19,4 +31,53 @@
 
 .App-link {
   color: #09d3ac;
+}
+.main{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: space-around;
+
+}
+.sideBar{
+  background: #2e2e2ee0;
+  flex-basis: 20%;
+  height: 100vh;
+  padding: 20px 0px;
+}
+.content{
+  width: 100%;
+  padding: 20px;
+}
+.content_top{
+  width: 100%;
+  text-align: right;
+  margin-right: 1rem;
+}
+.search{
+  position: absolute;
+  right: 20rem;
+  top: 6.5rem;
+}
+
+ .fa-search{
+  font-size: 2rem;
+  position: absolute;
+  right:1rem;
+  top: 2rem;
+  
+}
+
+.searchInput{
+  padding: 2rem;
+  width: 30rem;
+  font-size: 1.5rem;
+
+}
+.profile{
+  width: 10%;
+}
+
+.logo{
+  width: 25%;
 }
