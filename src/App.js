@@ -1,9 +1,13 @@
 import React from 'react';
-import logo from './images/logo.png';
-import profile from './images/Round-Profile-Pic.png'
 import './App.css';
+import UserHome from './components/LoggedView/User/UserHomePage'
+import MainMenu from './components/MainSideBare'
+import ProviderHome from './components/LoggedView/Provider/ProviderHomePage'
+import Home from './components/NotLoggedView/Home'
+import Header from './components/NotLoggedView/Header'
+import Router from './components/NotLoggedView/Router'
 
-import UserHome from './components/LoggedView/User/Home'
+
 
 function App() {
   const token = sessionStorage.getItem("token")
@@ -11,59 +15,22 @@ function App() {
   if(!token){
     content = (
       <div>
-      <form>
-        <label for="username">Username</label>
-        <input type="text" placeholder="username" id="username"/>
-        <label for="password">Password</label>
-        <input type="text" placeholder="password" id="password"/>
-        <input type="button" value="login"/>
-      </form>
-      <a href="#">Don't have an account?</a>
+        <Router/>
+      </div>
+    )
+  }else{
+    content = (
+      <div className="main">
+          <MainMenu/>
+          <ProviderHome/>
+          <UserHome/>
       </div>
     )
   }
 
   return (
-    <div className="App main">
-      <div className="sideBar">
-        <div>
-          <img src={logo} alt="LOGO" className="logo"/>
-        </div>
-        
-          <ul className="nav">
-            <li className="nav_item">
-              <a href="#" className="nav_item_content" >Link1</a>
-            </li>
-            <li className="nav_item">
-              <a href="#" className="nav_item_content" >Link2</a>
-            </li>
-            <li className="nav_item">
-              <a href="#" className="nav_item_content" >Link3</a>
-            </li>
-            <li className="nav_item">
-              <a href="#" className="nav_item_content" >Link4</a>
-            </li>
-          </ul>
-      </div>
-      <div className="content">
-        <div className="content_top">
-          <div className="search">
-              <input type="text" placeholder="search" className="searchInput"/>
-              <i className="fas fa-search"></i>
-          </div>
-          <img src={profile} alt="profile" className="profile"/>
-          
-        </div>
-        <div className="content_bottom">
-            <UserHome/>
-            <div className="content_bottom_sidebare">
-              <button className="btn btn_main btn_black">Create new File</button>
-              <button className="btn btn_main btn_white">Upload file</button>
-              <button className="btn btn_main btn_white">Upload directory</button>
-            </div>
-        </div>
-        
-      </div>
+    <div className="App">
+      {content}
     </div>
   );
 }
